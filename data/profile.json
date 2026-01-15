@@ -1,0 +1,48 @@
+{
+  "name": "Parsa Faraji",
+  "title": "Software Developer",
+  "tagline": "Building innovative solutions with code",
+  "email": "your@email.com",
+  "linkedin": "https://linkedin.com/in/yourprofile",
+  "bio": "I'm a passionate software developer with experience in building web applications and solving complex problems. I love learning new technologies and creating impactful solutions. Update this bio with your own story!",
+  "skills": [
+    "JavaScript",
+    "TypeScript",
+    "Python",
+    "React",
+    "Node.js",
+    "Git",
+    "HTML/CSS",
+    "SQL"
+  ],
+  "experience": [
+    {
+      "company": "Company Name",
+      "role": "Software Developer",
+      "startDate": "2023",
+      "endDate": "Present",
+      "description": "Describe your responsibilities and achievements here. What projects did you work on? What impact did you make?"
+    },
+    {
+      "company": "Previous Company",
+      "role": "Junior Developer",
+      "startDate": "2021",
+      "endDate": "2023",
+      "description": "Add details about your previous role. Highlight key accomplishments and technologies used."
+    }
+  ],
+  "education": [
+    {
+      "school": "University Name",
+      "degree": "Bachelor of Science in Computer Science",
+      "startDate": "2017",
+      "endDate": "2021"
+    }
+  ],
+  "github": {
+    "username": "parsa-faraji",
+    "excludeOrgs": true,
+    "excludeForks": true,
+    "whitelist": []
+  }
+}
