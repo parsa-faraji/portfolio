@@ -72,6 +72,6 @@
     "username": "parsa-faraji",
     "excludeOrgs": true,
     "excludeForks": true,
-    "whitelist": ["neural-network-playground", "sorting-visualizer", "pathfinding-visualizer", "TransferAble", "ElamiteDatasetLab", "CurrencyConvertor"]
+    "whitelist": ["linkhub", "devmetrics", "expenseflow", "neural-network-playground", "TransferAble", "pathfinding-visualizer"]
   }
 }
