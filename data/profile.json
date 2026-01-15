@@ -1,48 +1,77 @@
 {
-  "name": "Parsa Faraji",
-  "title": "Software Developer",
-  "tagline": "Building innovative solutions with code",
+  "name": "Parsa Faraji Alamouti",
+  "title": "Software Engineer",
+  "tagline": "EECS @ UC Berkeley | ML Researcher | Building innovative solutions with AI and data science",
   "email": "your@email.com",
-  "linkedin": "https://linkedin.com/in/yourprofile",
-  "bio": "I'm a passionate software developer with experience in building web applications and solving complex problems. I love learning new technologies and creating impactful solutions. Update this bio with your own story!",
+  "linkedin": "https://www.linkedin.com/in/parsa-faraji-alamouti-942338272/",
+  "bio": "Currently pursuing a Bachelor's degree in Electrical Engineering and Computer Sciences at UC Berkeley, with a strong foundation in Mathematics and Computer Science from Berkeley City College. Recognized as Salutatorian of the graduating class of 2025 and a recipient of multiple academic honors, reflecting a commitment to excellence and leadership in STEM. As a Machine Learning Researcher at TokenWorks LLC, contributing to knowledge graph advancements, OCR preprocessing pipeline improvements, and data annotation quality for underrepresented domains. Dedicated to leveraging technical expertise and innovative solutions to address complex challenges in AI and data science.",
   "skills": [
+    "Python",
+    "C++",
+    "Java",
     "JavaScript",
     "TypeScript",
-    "Python",
-    "React",
-    "Node.js",
+    "Machine Learning",
+    "Web Development",
+    "Data Science",
     "Git",
-    "HTML/CSS",
-    "SQL"
+    "Leadership"
   ],
   "experience": [
     {
-      "company": "Company Name",
-      "role": "Software Developer",
-      "startDate": "2023",
+      "company": "TokenWorks LLC",
+      "role": "Machine Learning Researcher",
+      "startDate": "Sep 2025",
       "endDate": "Present",
-      "description": "Describe your responsibilities and achievements here. What projects did you work on? What impact did you make?"
+      "description": "Contributing to knowledge graph and ontology research to improve entity linking and semantic understanding. Designing and testing OCR preprocessing pipelines (deskewing, denoising, contrast enhancement, reading order). Assisting with data annotation and quality evaluation to ensure accuracy in underrepresented domains."
     },
     {
-      "company": "Previous Company",
-      "role": "Junior Developer",
-      "startDate": "2021",
-      "endDate": "2023",
-      "description": "Add details about your previous role. Highlight key accomplishments and technologies used."
+      "company": "Open Project @ UC Berkeley",
+      "role": "Front End Team Lead",
+      "startDate": "Sep 2025",
+      "endDate": "Present",
+      "description": "Leading frontend development teams on semester-long client projects. Managing Berkeley student teams building scoped MVPs, internal tools, and prototypes for product teams."
+    },
+    {
+      "company": "Codify Berkeley",
+      "role": "Education Team",
+      "startDate": "Sep 2025",
+      "endDate": "Present",
+      "description": "Contributing to educational initiatives and technical curriculum development at UC Berkeley's premier coding organization."
+    },
+    {
+      "company": "Zingroll",
+      "role": "Content Analyst Intern",
+      "startDate": "Sep 2025",
+      "endDate": "Nov 2025",
+      "description": "Conducted market and user research to identify trends, customer needs, and growth opportunities. Analyzed content, product performance, and engagement data to guide creative strategies. Produced insights and recommendations that shaped storytelling, branding, and product positioning."
+    },
+    {
+      "company": "easy-donate",
+      "role": "Front-End Developer Apprentice",
+      "startDate": "Mar 2024",
+      "endDate": "Jul 2024",
+      "description": "Completed training in Front-End Development, Version Control platforms, and pair programming. Contributed to building donation platform interfaces."
     }
   ],
   "education": [
     {
-      "school": "University Name",
-      "degree": "Bachelor of Science in Computer Science",
-      "startDate": "2017",
-      "endDate": "2021"
+      "school": "University of California, Berkeley",
+      "degree": "B.S. Electrical Engineering and Computer Sciences",
+      "startDate": "Jun 2025",
+      "endDate": "May 2027"
+    },
+    {
+      "school": "Berkeley City College",
+      "degree": "A.S. Mathematics and Computer Science (4.0 GPA, Salutatorian)",
+      "startDate": "Jan 2023",
+      "endDate": "May 2025"
     }
   ],
   "github": {
     "username": "parsa-faraji",
     "excludeOrgs": true,
     "excludeForks": true,
-    "whitelist": []
+    "whitelist": ["TransferAble", "ElamiteDatasetLab", "CurrencyConvertor", "HashTableInC"]
   }
 }
