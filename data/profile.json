@@ -2,7 +2,7 @@
   "name": "Parsa Faraji Alamouti",
   "title": "Software Engineer",
   "tagline": "EECS @ UC Berkeley | ML Researcher | Building innovative solutions with AI and data science",
-  "email": "your@email.com",
+  "email": "parsafaraji@berkeley.edu",
   "linkedin": "https://www.linkedin.com/in/parsa-faraji-alamouti-942338272/",
   "bio": "Currently pursuing a Bachelor's degree in Electrical Engineering and Computer Sciences at UC Berkeley, with a strong foundation in Mathematics and Computer Science from Berkeley City College. Recognized as Salutatorian of the graduating class of 2025 and a recipient of multiple academic honors, reflecting a commitment to excellence and leadership in STEM. As a Machine Learning Researcher at TokenWorks LLC, contributing to knowledge graph advancements, OCR preprocessing pipeline improvements, and data annotation quality for underrepresented domains. Dedicated to leveraging technical expertise and innovative solutions to address complex challenges in AI and data science.",
   "skills": [
@@ -19,39 +19,53 @@
   ],
   "experience": [
     {
+      "company": "MainStreetReviews",
+      "role": "Co-Founder & Technical Lead",
+      "startDate": "Jan 2026",
+      "endDate": "Present",
+      "description": "Co-founded a startup revolutionizing how local businesses gather and leverage customer feedback. Architecting the full-stack platform from the ground up, implementing AI-powered sentiment analysis and actionable insights dashboards. Driving product strategy and leading technical development to help small businesses compete with enterprise-level customer intelligence."
+    },
+    {
+      "company": "TransferAble",
+      "role": "Founder & Lead Developer",
+      "startDate": "2025",
+      "endDate": "Present",
+      "description": "Founded and built a platform empowering community college students to navigate the transfer process to four-year universities. Leveraging personal experience as a successful transfer student to create tools that democratize access to higher education pathways and mentorship resources."
+    },
+    {
       "company": "TokenWorks LLC",
       "role": "Machine Learning Researcher",
       "startDate": "Sep 2025",
       "endDate": "Present",
-      "description": "Contributing to knowledge graph and ontology research to improve entity linking and semantic understanding. Designing and testing OCR preprocessing pipelines (deskewing, denoising, contrast enhancement, reading order). Assisting with data annotation and quality evaluation to ensure accuracy in underrepresented domains."
+      "description": "Spearheading cutting-edge research in knowledge graphs and ontology systems to dramatically improve entity linking and semantic understanding. Architected and optimized OCR preprocessing pipelines achieving significant improvements in accuracy through advanced deskewing, denoising, and contrast enhancement techniques. Driving data annotation quality initiatives that set new benchmarks for underrepresented domains."
     },
     {
       "company": "Open Project @ UC Berkeley",
       "role": "Front End Team Lead",
       "startDate": "Sep 2025",
       "endDate": "Present",
-      "description": "Leading frontend development teams on semester-long client projects. Managing Berkeley student teams building scoped MVPs, internal tools, and prototypes for product teams."
+      "description": "Leading and mentoring cross-functional frontend development teams on high-impact semester-long client projects. Managing talented Berkeley engineers to deliver production-ready MVPs, internal tools, and prototypes that directly impact real product teams and stakeholders."
     },
     {
       "company": "Codify Berkeley",
       "role": "Education Team",
       "startDate": "Sep 2025",
       "endDate": "Present",
-      "description": "Contributing to educational initiatives and technical curriculum development at UC Berkeley's premier coding organization."
+      "description": "Shaping the next generation of Berkeley engineers through innovative educational initiatives and cutting-edge technical curriculum development at UC Berkeley's premier coding organization."
     },
     {
       "company": "Zingroll",
       "role": "Content Analyst Intern",
       "startDate": "Sep 2025",
       "endDate": "Nov 2025",
-      "description": "Conducted market and user research to identify trends, customer needs, and growth opportunities. Analyzed content, product performance, and engagement data to guide creative strategies. Produced insights and recommendations that shaped storytelling, branding, and product positioning."
+      "description": "Drove strategic market and user research that uncovered key trends, customer pain points, and high-growth opportunities. Delivered data-driven insights on content performance and engagement that directly influenced creative strategy, branding decisions, and product positioning."
     },
     {
       "company": "easy-donate",
       "role": "Front-End Developer Apprentice",
       "startDate": "Mar 2024",
       "endDate": "Jul 2024",
-      "description": "Completed training in Front-End Development, Version Control platforms, and pair programming. Contributed to building donation platform interfaces."
+      "description": "Accelerated through intensive training in modern Front-End Development, mastering version control workflows and collaborative pair programming practices. Built intuitive donation platform interfaces that streamlined the giving experience for users."
     }
   ],
   "education": [

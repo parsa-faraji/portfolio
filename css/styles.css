@@ -106,8 +106,29 @@ a:hover {
     margin: 0 auto;
 }
 
+.hero-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
 .hero-content {
     max-width: 500px;
+    flex: 1;
+}
+
+.hero-photo {
+    flex-shrink: 0;
+}
+
+.profile-img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--border);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 .hero-name {
@@ -541,6 +562,17 @@ a:hover {
 
     .hero {
         padding: 60px 20px 40px;
+    }
+
+    .hero-wrapper {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 24px;
+    }
+
+    .profile-img {
+        width: 140px;
+        height: 140px;
     }
 
     .hero-name {
