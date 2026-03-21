@@ -1,12 +1,21 @@
 # OS
 .DS_Store
 Thumbs.db
+Desktop.ini
+._*
 
 # Editor
 .vscode/
 .idea/
 *.swp
 *.swo
+*~
+
+# Node (in case of local dev tooling)
+node_modules/
+package-lock.json
 
 # Misc
 *.log
+*.env
+.env.*
