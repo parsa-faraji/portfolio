@@ -1,91 +1,98 @@
 {
   "name": "Parsa Faraji Alamouti",
-  "title": "Software Engineer",
-  "tagline": "EECS @ UC Berkeley | ML Researcher | Building innovative solutions with AI and data science",
+  "title": "Full-Stack & AI Engineer",
+  "tagline": "UC Berkeley EECS | Shipping LLM agents, ML pipelines, and production full-stack features",
   "email": "parsafaraji@berkeley.edu",
   "linkedin": "https://www.linkedin.com/in/parsa-faraji-alamouti-942338272/",
-  "bio": "Currently pursuing a Bachelor's degree in Electrical Engineering and Computer Sciences at UC Berkeley, with a strong foundation in Mathematics and Computer Science from Berkeley City College. Recognized as Salutatorian of the graduating class of 2025 and a recipient of multiple academic honors, reflecting a commitment to excellence and leadership in STEM. As a Machine Learning Researcher at TokenWorks LLC, contributing to knowledge graph advancements, OCR preprocessing pipeline improvements, and data annotation quality for underrepresented domains. Dedicated to leveraging technical expertise and innovative solutions to address complex challenges in AI and data science.",
-  "skills": [
-    "Python",
-    "C++",
-    "Java",
-    "JavaScript",
-    "TypeScript",
-    "Machine Learning",
-    "Web Development",
-    "Data Science",
-    "Git",
-    "Leadership"
-  ],
+  "resumeUrl": "assets/Parsa_Faraji_Alamouti_Resume.pdf",
+  "bio": "UC Berkeley EECS senior and Full-Stack & AI Engineer shipping LLM agents, end-to-end ML pipelines, and production full-stack features across React/TypeScript front-ends, Python back-ends, and modern AI tooling.",
+  "skills": {
+    "Languages": ["Python", "TypeScript", "JavaScript", "SQL", "C++"],
+    "AI / ML": ["LLM APIs (OpenAI, Anthropic)", "LLM Agents", "RAG", "Embeddings", "Prompt Engineering", "Model Evaluation"],
+    "Full-Stack & Tools": ["React", "Node.js", "Flask", "REST APIs", "Firebase", "Git", "Docker", "Linux", "Pandas", "NumPy", "Scikit-learn"]
+  },
   "experience": [
     {
-      "company": "MainStreetReviews",
-      "role": "Co-Founder & Technical Lead",
-      "startDate": "Jan 2026",
+      "company": "1Sphere AI",
+      "role": "Founding Software Engineer",
+      "startDate": "Nov 2025",
       "endDate": "Present",
-      "description": "Co-founded a startup revolutionizing how local businesses gather and leverage customer feedback. Architecting the full-stack platform from the ground up, implementing AI-powered sentiment analysis and actionable insights dashboards. Driving product strategy and leading technical development to help small businesses compete with enterprise-level customer intelligence."
+      "bullets": [
+        "Designed and shipped multi-step LLM agent systems that autonomously execute end-to-end tasks, improving task completion reliability and consistency across internal benchmarks",
+        "Integrated 5+ external APIs into agent workflows, enabling real-time data access, tool use, and action execution within AI pipelines",
+        "Built AI-driven workflow automation tools that cut manual task time by 30–50% for internal teams by replacing repetitive operations with agent-orchestrated pipelines",
+        "Owned full-stack delivery end-to-end: prompt and tool-schema design, Python back-end services, and TypeScript front-end integration"
+      ]
     },
     {
-      "company": "TransferAble",
-      "role": "Founder & Lead Developer",
-      "startDate": "2025",
-      "endDate": "Present",
-      "description": "Founded and built a platform empowering community college students to navigate the transfer process to four-year universities. Leveraging personal experience as a successful transfer student to create tools that democratize access to higher education pathways and mentorship resources."
-    },
-    {
-      "company": "TokenWorks LLC",
-      "role": "Machine Learning Researcher",
-      "startDate": "Sep 2025",
-      "endDate": "Present",
-      "description": "Spearheading cutting-edge research in knowledge graphs and ontology systems to dramatically improve entity linking and semantic understanding. Architected and optimized OCR preprocessing pipelines achieving significant improvements in accuracy through advanced deskewing, denoising, and contrast enhancement techniques. Driving data annotation quality initiatives that set new benchmarks for underrepresented domains."
-    },
-    {
-      "company": "Open Project @ UC Berkeley",
-      "role": "Front End Team Lead",
-      "startDate": "Sep 2025",
-      "endDate": "Present",
-      "description": "Leading and mentoring cross-functional frontend development teams on high-impact semester-long client projects. Managing talented Berkeley engineers to deliver production-ready MVPs, internal tools, and prototypes that directly impact real product teams and stakeholders."
-    },
-    {
-      "company": "Codify Berkeley",
-      "role": "Education Team",
-      "startDate": "Sep 2025",
-      "endDate": "Present",
-      "description": "Shaping the next generation of Berkeley engineers through innovative educational initiatives and cutting-edge technical curriculum development at UC Berkeley's premier coding organization."
-    },
-    {
-      "company": "Zingroll",
-      "role": "Content Analyst Intern",
+      "company": "TokenWorks",
+      "role": "Machine Learning Engineer",
       "startDate": "Sep 2025",
       "endDate": "Nov 2025",
-      "description": "Drove strategic market and user research that uncovered key trends, customer pain points, and high-growth opportunities. Delivered data-driven insights on content performance and engagement that directly influenced creative strategy, branding decisions, and product positioning."
+      "bullets": [
+        "Built end-to-end preprocessing, training, and evaluation pipelines to systematically benchmark multiple ML models against shared metrics",
+        "Processed and structured datasets of 10K+ entities to power semantic relationship modeling and retrieval-augmented workflows",
+        "Improved retrieval relevance in internal experiments by refining ontology design and query strategies, strengthening downstream RAG quality",
+        "Authored a reusable evaluation harness that surfaced regressions early and standardized model comparison across the team"
+      ]
     },
     {
       "company": "easy-donate",
-      "role": "Front-End Developer Apprentice",
+      "role": "Full-Stack Developer",
       "startDate": "Mar 2024",
-      "endDate": "Jul 2024",
-      "description": "Accelerated through intensive training in modern Front-End Development, mastering version control workflows and collaborative pair programming practices. Built intuitive donation platform interfaces that streamlined the giving experience for users."
+      "endDate": "Jun 2024",
+      "bullets": [
+        "Redesigned the online donation funnel, contributing to a 20% lift in conversion rate and a 35% reduction in page load latency",
+        "Refactored legacy REST APIs and UI components into modular, reusable React/Node modules, significantly improving maintainability and onboarding time",
+        "Instrumented donor event logging and anomaly tracking, surfacing behavioral data that informed targeted campaign and outreach strategy"
+      ]
+    }
+  ],
+  "projectsAndLeadership": [
+    {
+      "name": "Real-Time Stroke Detection System",
+      "startDate": "Aug 2024",
+      "endDate": "Dec 2024",
+      "bullets": [
+        "Built a real-time detection backend that fuses physiological signals with a facial-asymmetry computer-vision model to flag suspected strokes",
+        "Engineered a streaming preprocessing pipeline that normalized input frames and reduced lighting noise, lowering false-positive rate and stabilizing predictions",
+        "Achieved ~92% accuracy on internal test cases by tuning detection thresholds and applying temporal smoothing"
+      ]
+    },
+    {
+      "name": "Berkeley Open Project",
+      "role": "Front-End Education Lead",
+      "startDate": "Aug 2025",
+      "endDate": "Present",
+      "bullets": [
+        "Lead the front-end curriculum team, designing and teaching hands-on lessons on HTML, CSS, JavaScript, and React",
+        "Translated complex front-end concepts into hands-on exercises and live demos, improving member confidence and project output"
+      ]
     }
   ],
   "education": [
     {
       "school": "University of California, Berkeley",
-      "degree": "B.S. Electrical Engineering and Computer Sciences",
-      "startDate": "Jun 2025",
-      "endDate": "May 2027"
+      "degree": "B.S. Electrical Engineering and Computer Sciences (EECS)",
+      "startDate": "Aug 2025",
+      "endDate": "May 2026",
+      "gpa": "3.9",
+      "honors": ["Dean's List", "Engineering Honors Society"],
+      "coursework": ["Data Structures", "Algorithms", "Probability", "Machine Learning", "Data Science", "Optimization"]
     },
     {
       "school": "Berkeley City College",
-      "degree": "A.S. Mathematics and Computer Science (4.0 GPA, Salutatorian)",
+      "degree": "A.S. Mathematics; A.S. Data Science (Honors)",
       "startDate": "Jan 2023",
-      "endDate": "May 2025"
+      "endDate": "May 2025",
+      "gpa": "4.0",
+      "honors": ["Graduated Salutatorian", "Delivered commencement speech to 400+", "Co-founded Computer & Data Science Club"]
     }
   ],
   "github": {
     "username": "parsa-faraji",
     "excludeOrgs": true,
     "excludeForks": true,
-    "whitelist": ["linkhub", "devmetrics", "expenseflow", "neural-network-playground", "TransferAble", "pathfinding-visualizer"]
+    "whitelist": ["applyai", "snapwrite-ai", "TransferAble", "Huddle", "deadline-aggregator", "neural-network-playground"]
   }
 }
