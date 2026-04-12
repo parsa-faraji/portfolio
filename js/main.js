@@ -39,7 +39,7 @@
         if (!container) return;
 
         container.innerHTML = Object.entries(p.skills).map(([group, skills]) => `
-            <div class="skill-group">
+            <div class="skill-group fade-in">
                 <h3>${group}</h3>
                 <div class="skill-tags">
                     ${skills.map(s => `<span class="skill-tag">${s}</span>`).join('')}
@@ -116,7 +116,7 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) entry.target.classList.add('visible');
             });
-        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+        }, { threshold: 0.05, rootMargin: '0px 0px -60px 0px' });
 
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
     }
