@@ -1,258 +1,182 @@
 /**
  * Main Application Logic
- * Loads configuration and populates the portfolio
+ * Loads profile.json and populates all sections
  */
 
-(function() {
+(function () {
     'use strict';
 
-    // DOM Elements
-    const elements = {
-        navBrand: document.getElementById('nav-brand'),
-        heroName: document.getElementById('hero-name'),
-        heroTitle: document.getElementById('hero-title'),
-        heroTagline: document.getElementById('hero-tagline'),
-        githubLink: document.getElementById('github-link'),
-        linkedinLink: document.getElementById('linkedin-link'),
-        bio: document.getElementById('bio'),
-        skills: document.getElementById('skills'),
-        experienceTimeline: document.getElementById('experience-timeline'),
-        projectsGrid: document.getElementById('projects-grid'),
-        educationGrid: document.getElementById('education-grid'),
-        emailLink: document.getElementById('email-link'),
-        contactLinkedin: document.getElementById('contact-linkedin'),
-        contactGithub: document.getElementById('contact-github'),
-        footerName: document.getElementById('footer-name'),
-        currentYear: document.getElementById('current-year')
-    };
+    const $ = (id) => document.getElementById(id);
 
-    /**
-     * Load profile configuration
-     */
     async function loadProfile() {
         try {
-            const response = await fetch('data/profile.json');
-            if (!response.ok) {
-                throw new Error('Failed to load profile');
-            }
-            return await response.json();
-        } catch (error) {
-            console.error('Error loading profile:', error);
+            const res = await fetch('data/profile.json');
+            if (!res.ok) throw new Error('Failed to load profile');
+            return await res.json();
+        } catch (err) {
+            console.error('Error loading profile:', err);
             return null;
         }
     }
 
-    /**
-     * Populate hero section
-     */
-    function populateHero(profile) {
-        if (elements.navBrand) elements.navBrand.textContent = profile.name.split(' ')[0];
-        if (elements.heroName) elements.heroName.textContent = profile.name;
-        if (elements.heroTitle) elements.heroTitle.textContent = profile.title;
-        if (elements.heroTagline) elements.heroTagline.textContent = profile.tagline;
+    function populateHero(p) {
+        const brand = $('nav-brand');
+        if (brand) brand.textContent = p.name.split(' ')[0];
+        if ($('hero-name')) $('hero-name').textContent = p.name;
+        if ($('hero-title')) $('hero-title').textContent = p.title;
+        if ($('hero-tagline')) $('hero-tagline').textContent = p.tagline;
 
-        // Set social links
-        const githubUrl = `https://github.com/${profile.github.username}`;
-        if (elements.githubLink) elements.githubLink.href = githubUrl;
-        if (elements.linkedinLink) elements.linkedinLink.href = profile.linkedin;
+        const ghUrl = 'https://github.com/' + p.github.username;
+        if ($('github-link')) $('github-link').href = ghUrl;
+        if ($('linkedin-link')) $('linkedin-link').href = p.linkedin;
+        if ($('resume-link')) $('resume-link').href = p.resumeUrl;
     }
 
-    /**
-     * Populate about section
-     */
-    function populateAbout(profile) {
-        if (elements.bio) elements.bio.textContent = profile.bio;
+    function populateAbout(p) {
+        if ($('bio')) $('bio').textContent = p.bio;
 
-        if (elements.skills) {
-            elements.skills.innerHTML = profile.skills.map(skill => `
-                <div class="skill-tag">
-                    <span>${skill}</span>
+        const container = $('skills-container');
+        if (!container) return;
+
+        container.innerHTML = Object.entries(p.skills).map(([group, skills]) => `
+            <div class="skill-group">
+                <h3>${group}</h3>
+                <div class="skill-tags">
+                    ${skills.map(s => `<span class="skill-tag">${s}</span>`).join('')}
                 </div>
-            `).join('');
-        }
+            </div>
+        `).join('');
     }
 
-    /**
-     * Populate experience section
-     */
-    function populateExperience(profile) {
-        if (!elements.experienceTimeline || !profile.experience) return;
+    function renderTimeline(containerId, items) {
+        const el = $(containerId);
+        if (!el || !items) return;
 
-        elements.experienceTimeline.innerHTML = profile.experience.map(exp => `
+        el.innerHTML = items.map(item => `
             <div class="timeline-item fade-in">
-                <div class="timeline-content">
-                    <div class="timeline-header">
-                        <h3 class="timeline-role">${exp.role}</h3>
-                        <span class="timeline-date">${exp.startDate} - ${exp.endDate}</span>
-                    </div>
-                    <p class="timeline-company">${exp.company}</p>
-                    <p class="timeline-description">${exp.description}</p>
+                <div class="timeline-header">
+                    <h3 class="timeline-role">${item.role || item.name}</h3>
+                    <span class="timeline-date">${item.startDate} \u2013 ${item.endDate}</span>
                 </div>
+                ${item.company ? `<p class="timeline-company">${item.company}</p>` : ''}
+                <ul class="timeline-bullets">
+                    ${item.bullets.map(b => `<li>${b}</li>`).join('')}
+                </ul>
             </div>
         `).join('');
     }
 
-    /**
-     * Populate education section
-     */
-    function populateEducation(profile) {
-        if (!elements.educationGrid || !profile.education) return;
+    function populateEducation(p) {
+        const el = $('education-grid');
+        if (!el || !p.education) return;
 
-        elements.educationGrid.innerHTML = profile.education.map(edu => `
-            <div class="education-card fade-in">
-                <h3 class="education-school">${edu.school}</h3>
-                <p class="education-degree">${edu.degree}</p>
-                <p class="education-date">${edu.startDate} - ${edu.endDate}</p>
-            </div>
-        `).join('');
+        el.innerHTML = p.education.map(edu => {
+            const details = [];
+            if (edu.honors) details.push(...edu.honors);
+            if (edu.coursework) details.push('Coursework: ' + edu.coursework.join(', '));
+
+            return `
+                <div class="education-card fade-in">
+                    <div class="education-header">
+                        <h3 class="education-school">${edu.school}</h3>
+                        ${edu.gpa ? `<span class="education-gpa">GPA: ${edu.gpa}</span>` : ''}
+                    </div>
+                    <p class="education-degree">${edu.degree}</p>
+                    <p class="education-date">${edu.startDate} \u2013 ${edu.endDate}</p>
+                    ${details.length > 0 ? `
+                        <ul class="education-details">
+                            ${details.map(d => `<li>${d}</li>`).join('')}
+                        </ul>
+                    ` : ''}
+                </div>
+            `;
+        }).join('');
     }
 
-    /**
-     * Populate contact section
-     */
-    function populateContact(profile) {
-        const githubUrl = `https://github.com/${profile.github.username}`;
-
-        if (elements.emailLink) {
-            elements.emailLink.href = `mailto:${profile.email}`;
-        }
-        if (elements.contactLinkedin) {
-            elements.contactLinkedin.href = profile.linkedin;
-        }
-        if (elements.contactGithub) {
-            elements.contactGithub.href = githubUrl;
-        }
-        if (elements.footerName) {
-            elements.footerName.textContent = profile.name;
-        }
+    function populateContact(p) {
+        const ghUrl = 'https://github.com/' + p.github.username;
+        if ($('email-link')) $('email-link').href = 'mailto:' + p.email;
+        if ($('contact-linkedin')) $('contact-linkedin').href = p.linkedin;
+        if ($('contact-github')) $('contact-github').href = ghUrl;
+        if ($('footer-name')) $('footer-name').textContent = p.name;
     }
 
-    /**
-     * Load GitHub projects
-     */
-    function loadProjects(profile) {
-        if (!profile.github || !profile.github.username) return;
-
-        GitHubAPI.renderProjects('projects-grid', profile.github.username, {
-            excludeOrgs: profile.github.excludeOrgs,
-            excludeForks: profile.github.excludeForks,
-            whitelist: profile.github.whitelist || [],
+    function loadProjects(p) {
+        if (!p.github || !p.github.username) return;
+        GitHubAPI.renderProjects('projects-grid', p.github.username, {
+            excludeOrgs: p.github.excludeOrgs,
+            excludeForks: p.github.excludeForks,
+            whitelist: p.github.whitelist || [],
             maxRepos: 12
         });
     }
 
-    /**
-     * Initialize scroll animations
-     */
     function initScrollAnimations() {
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
+                if (entry.isIntersecting) entry.target.classList.add('visible');
             });
-        }, observerOptions);
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-        // Observe all fade-in elements
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    }
+
+    function initMobileNav() {
+        const toggle = document.querySelector('.nav-toggle');
+        const links = document.querySelector('.nav-links');
+        if (!toggle || !links) return;
+
+        toggle.addEventListener('click', () => {
+            toggle.classList.toggle('active');
+            links.classList.toggle('active');
+        });
+
+        links.querySelectorAll('a').forEach(a => {
+            a.addEventListener('click', () => {
+                toggle.classList.remove('active');
+                links.classList.remove('active');
+            });
         });
     }
 
-    /**
-     * Initialize mobile navigation
-     */
-    function initMobileNav() {
-        const navToggle = document.querySelector('.nav-toggle');
-        const navLinks = document.querySelector('.nav-links');
-
-        if (navToggle && navLinks) {
-            navToggle.addEventListener('click', () => {
-                navToggle.classList.toggle('active');
-                navLinks.classList.toggle('active');
-            });
-
-            // Close menu when clicking a link
-            navLinks.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    navToggle.classList.remove('active');
-                    navLinks.classList.remove('active');
-                });
-            });
-        }
-    }
-
-    /**
-     * Initialize smooth scroll for anchor links
-     */
     function initSmoothScroll() {
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    const navHeight = document.querySelector('.navbar').offsetHeight;
-                    const targetPosition = target.offsetTop - navHeight;
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
+                    const offset = document.querySelector('.navbar').offsetHeight;
+                    window.scrollTo({ top: target.offsetTop - offset, behavior: 'smooth' });
                 }
             });
         });
     }
 
-    /**
-     * Update current year in footer
-     */
-    function updateYear() {
-        if (elements.currentYear) {
-            elements.currentYear.textContent = new Date().getFullYear();
-        }
-    }
-
-    /**
-     * Initialize the application
-     */
     async function init() {
-        // Set current year
-        updateYear();
+        if ($('current-year')) $('current-year').textContent = new Date().getFullYear();
 
-        // Initialize UI components
         initMobileNav();
         initSmoothScroll();
 
-        // Load and populate profile data
         const profile = await loadProfile();
+        if (!profile) return;
 
-        if (profile) {
-            populateHero(profile);
-            populateAbout(profile);
-            populateExperience(profile);
-            populateEducation(profile);
-            populateContact(profile);
-            loadProjects(profile);
+        populateHero(profile);
+        populateAbout(profile);
+        renderTimeline('experience-timeline', profile.experience);
+        renderTimeline('leadership-timeline', profile.projectsAndLeadership);
+        populateEducation(profile);
+        populateContact(profile);
+        loadProjects(profile);
 
-            // Update page title
-            document.title = `${profile.name} | Portfolio`;
-        }
+        document.title = profile.name + ' | Portfolio';
 
-        // Initialize scroll animations after content is loaded
-        setTimeout(() => {
-            initScrollAnimations();
-        }, 100);
+        setTimeout(initScrollAnimations, 100);
     }
 
-    // Start the application when DOM is ready
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', init);
     } else {
         init();
     }
-
 })();
