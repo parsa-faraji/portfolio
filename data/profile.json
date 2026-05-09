@@ -93,6 +93,16 @@
     "username": "parsa-faraji",
     "excludeOrgs": true,
     "excludeForks": true,
-    "whitelist": ["applyai", "snapwrite-ai", "TransferAble", "Huddle", "deadline-aggregator", "neural-network-playground"]
+    "excludeArchived": true,
+    "whitelist": [
+      "arena",
+      "snapwrite-ai",
+      "coordination-agent",
+      "deadline-aggregator",
+      "ElamiteDatasetLab",
+      "Huddle",
+      "TransferAble",
+      "devmetrics"
+    ]
   }
 }

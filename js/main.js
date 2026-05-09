@@ -106,6 +106,7 @@
         GitHubAPI.renderProjects('projects-grid', p.github.username, {
             excludeOrgs: p.github.excludeOrgs,
             excludeForks: p.github.excludeForks,
+            excludeArchived: p.github.excludeArchived,
             whitelist: p.github.whitelist || [],
             maxRepos: 12
         });

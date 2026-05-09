@@ -16,6 +16,7 @@ const GitHubAPI = {
         const {
             excludeOrgs = true,
             excludeForks = true,
+            excludeArchived = true,
             whitelist = [],
             sortBy = 'updated',
             maxRepos = 12
@@ -41,6 +42,11 @@ const GitHubAPI = {
             repos = repos.filter(repo => {
                 // Exclude forks if specified
                 if (excludeForks && repo.fork) {
+                    return false;
+                }
+
+                // Exclude archived repos from the public portfolio surface
+                if (excludeArchived && repo.archived) {
                     return false;
                 }
 
